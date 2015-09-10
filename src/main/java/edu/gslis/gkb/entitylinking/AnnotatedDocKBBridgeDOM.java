@@ -1,5 +1,6 @@
 package edu.gslis.gkb.entitylinking;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -21,6 +22,12 @@ public class AnnotatedDocKBBridgeDOM extends AnnotatedDocument
 	public void read(String pathToFile)
 	{
 		try {
+			File file = new File(pathToFile);
+			if(!file.exists()) {
+				System.err.println("can't find serialized file: " + pathToFile);
+				return;
+			}
+			
 			DOMParser parser = new DOMParser();
 			parser.parse(pathToFile);
 			Document doc = parser.getDocument();

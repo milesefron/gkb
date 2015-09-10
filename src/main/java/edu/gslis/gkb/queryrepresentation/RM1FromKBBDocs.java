@@ -16,6 +16,7 @@ import edu.gslis.textrepresentation.FeatureVector;
  * Should give results very similar to those from the RM1 class.  But this version demonstrates how to 
  * pull document text from files on disk prepared by an entity linker.
  * 
+ * Clients
  * @author Miles Efron
  *
  */
@@ -56,6 +57,8 @@ public class RM1FromKBBDocs extends FeedbackMethod
 			String pathToFile = pathToLinkedDocs + File.separator + hit.getDocno() + FILENAME_EXTENTION;
 			AnnotatedDocument doc = null;
 			
+			System.err.println("deserializing " + pathToFile);
+
 			if(linker == EntityLinker.KBB)
 				doc = new AnnotatedDocKBBridgeDOM();
 			else if(linker == EntityLinker.FACC)
@@ -109,5 +112,9 @@ public class RM1FromKBBDocs extends FeedbackMethod
 	public void setLinker(EntityLinker linker) 
 	{
 		this.linker = linker;
+	}
+	public void setPathToLinkedDocs(String pathToLinkedDocs)
+	{
+		this.pathToLinkedDocs = pathToLinkedDocs;
 	}
 }

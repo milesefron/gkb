@@ -1,0 +1,11 @@
+{
+"queries"          :  "./topics/topics.robust.json",
+"index"            :  "/Users/mefron/ir/indexes/robust",
+"stopper"          :  "./data/stoplist.indri",
+"count"            :  1000,
+"fbDocs"           :  50,
+"fbTerms"          :  20,
+"fbOrigWeight"     :  0.5,
+"fbOrigWeight"     :  0.0,
+"annotation-dir"   :  "./data/combined-annotations"
+}

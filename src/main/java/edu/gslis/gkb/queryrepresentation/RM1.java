@@ -44,9 +44,9 @@ public class RM1 extends FeedbackMethod
 			double docScore  = fbDocScores.get(i);
 			
 			
-			FeatureVector qv = new FeatureVector(origQuery, stopper);
+			
 			double docLength = dv.getLength();
-			for(String term : qv.getFeatures()) {
+			for(String term : dv.getFeatures()) {
 				if(stopper.isStopWord(term))
 					continue;
 				double freqInDoc = dv.getFeatureWeight(term);
@@ -55,5 +55,6 @@ public class RM1 extends FeedbackMethod
 				fbModel.addTerm(term, pr * docScore);
 			}
 		}
+
 	}
 }
